@@ -33,7 +33,7 @@ public class AgenciaController {
 	private ContaService contaService;
 	
 	@ApiOperation(value = "Cadastra uma agência passando como parâmetro os dados da agência")
-	@PostMapping(value="/agencia")
+	@PostMapping(value="/")
 	public ResponseEntity<Agencia> cadastrarAgencia(@ModelAttribute("agenciaDTO") AgenciaDTO agenciaDTO) {
 		Agencia agencia = agenciaService.cadastrarAgencia(agenciaDTO);
 		return ResponseEntity.status(HttpStatus.CREATED).body(agencia);
@@ -61,5 +61,4 @@ public class AgenciaController {
 		List<Cliente> clientes = agenciaService.listaClientesAgencia(idAgencia);
 		return ResponseEntity.status(HttpStatus.OK).body(clientes);
 	}
-	
 }
